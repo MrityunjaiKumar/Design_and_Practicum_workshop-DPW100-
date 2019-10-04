@@ -1,8 +1,8 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
  
-const char* ssid = "yourNetworkName";
-const char* password =  "yourPassword";
+const char* ssid = "<SSID>";
+const char* password =  "<PASSWORD>";
  
 void setup() {
  
