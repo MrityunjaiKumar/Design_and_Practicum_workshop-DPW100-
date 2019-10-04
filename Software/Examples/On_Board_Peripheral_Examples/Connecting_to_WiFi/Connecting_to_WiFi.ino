@@ -1,7 +1,7 @@
 #include <WiFi.h>
  
-const char* ssid = "yourNetworkName";
-const char* password =  "yourNetworkPass";
+const char* ssid = "ssid";
+const char* password =  "password";
  
 void setup() {
  
