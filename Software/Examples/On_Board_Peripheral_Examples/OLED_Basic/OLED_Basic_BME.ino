@@ -1,7 +1,3 @@
-/*
- * Program to display temperature, pressure, altitude and humidity on the display
- */
-
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
@@ -28,11 +24,14 @@ void setup() {
     for(;;);
   }
   delay(2000);
+}
+
+void loop() {
   display.clearDisplay();
   display.setTextSize(1);
   display.setTextColor(WHITE);
   display.setCursor(0,20);
-
+  
   temperature = bme.readTemperature();
   humidity = bme.readHumidity();
   pressure = bme.readPressure() / 100.0F;
@@ -55,8 +54,7 @@ void setup() {
   display.println(" %");
 
   display.println();
-  display.display(); 
-}
 
-void loop() {
+  display.display();
+  delay(1000);
 }
