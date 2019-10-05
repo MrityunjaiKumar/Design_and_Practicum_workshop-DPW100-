@@ -1,6 +1,6 @@
 #include <WiFi.h>
 void setup() {
-  Serial.begin(112500);
+  Serial.begin(115200);
 }
 
   void loop()
