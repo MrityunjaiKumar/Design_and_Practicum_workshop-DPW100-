@@ -8,7 +8,7 @@ WiFiServer server(80);
 void setup()
 {
     Serial.begin(115200);
-    pinMode(5, OUTPUT);      // set the LED pin mode
+    pinMode(2, OUTPUT);      // set the LED pin mode
 
     delay(10);
 
@@ -59,8 +59,8 @@ void loop(){
             client.println();
 
             // the content of the HTTP response follows the header:
-            client.print("Click <a href=\"/H\">here</a> to turn the LED on pin 5 on.<br>");
-            client.print("Click <a href=\"/L\">here</a> to turn the LED on pin 5 off.<br>");
+            client.print("Click <a href=\"/H\">here</a> to turn the LED on pin 2 on.<br>");
+            client.print("Click <a href=\"/L\">here</a> to turn the LED on pin 2 off.<br>");
 
             // The HTTP response ends with another blank line:
             client.println();
