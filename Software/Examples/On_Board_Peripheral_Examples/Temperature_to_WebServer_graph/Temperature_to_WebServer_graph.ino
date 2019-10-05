@@ -11,9 +11,9 @@ Adafruit_BME280 bme;
 float temperature;
 
 #define SEALEVELPRESSURE_HPA (1050)
-
-const char *ssid = "Lenovo";
-const char *password = "20182017";
+//put your network information 
+const char *ssid = "ssid";
+const char *password = "password";
 
 WebServer server(80);
 
@@ -120,6 +120,7 @@ void drawGraph() {
   float y = bme.readTemperature();
   for (int x = 10; x < 390; x += 5) {
     float y2 = bme.readTemperature();
+    //you will need sharp temperature changes to see the difference in graph.
     sprintf(temp, "<line x1=\"%d\" y1=\"%f\" x2=\"%d\" y2=\"%f\" stroke-width=\"1\" />\n", x, y, x + 5, y2);
     out += temp;
     y = y2;
