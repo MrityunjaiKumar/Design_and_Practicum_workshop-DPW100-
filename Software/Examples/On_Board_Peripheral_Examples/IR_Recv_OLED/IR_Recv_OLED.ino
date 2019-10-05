@@ -45,11 +45,13 @@ void ircode(decode_results *results) {
   // Panasonic has an Address
   if (results->decode_type == PANASONIC) {
     Serial.print(results->address, HEX);
+    display.println(results->address, HEX);
     Serial.print(":");
   }
 
   // Print Code
   Serial.print(results->value, HEX);
+  display.println(results->value, HEX);
 }
 
 //+=============================================================================
@@ -59,51 +61,67 @@ void encoding(decode_results *results) {
   switch (results->decode_type) {
   default:
   case UNKNOWN:
+    Serial.println("UNKNOWN");
     display.println("UNKNOWN");
     break;
   case NEC:
+    Serial.println("NEC");
     display.println("NEC");
     break;
   case SONY:
+    Serial.println("SONY");
     display.println("SONY");
     break;
   case RC5:
+    Serial.println("RC5");
     display.println("RC5");
     break;
   case RC6:
+    Serial.println("RC6");
     display.println("RC6");
     break;
   case DISH:
+    Serial.println("DISH");
     display.println("DISH");
     break;
   case SHARP:
+    Serial.println("SHARP");
     display.println("SHARP");
     break;
   case JVC:
-    display.println("JVC");
     break;
+    Serial.println("JVC");
+    display.println("JVC");
   case SANYO:
+    Serial.println("SANYO");
     display.println("SANYO");
     break;
   case MITSUBISHI:
+    Serial.println("MITSUBISHI");
     display.println("MITSUBISHI");
     break;
   case SAMSUNG:
+    Serial.println("SAMSUNG");
     display.println("SAMSUNG");
     break;
   case LG:
+    Serial.println("LG");
     display.println("LG");
     break;
   case WHYNTER:
+    Serial.println("WHYNTER");
     display.println("WHYNTER");
     break;
   case AIWA_RC_T501:
+    Serial.println("AIWA_RC_T501");
     display.println("AIWA_RC_T501");
     break;
   case PANASONIC:
+    Serial.println("PANASONIC");
     display.println("PANASONIC");
     break;
   case DENON:
+    Serial.println("Denon");
     display.println("Denon");
     break;
   }
@@ -223,7 +241,7 @@ void loop() {
 
   if (irrecv.decode(&results)) { // Grab an IR code
     display.clearDisplay();
-    display.setTextSize(5);
+    display.setTextSize(1);
     display.setTextColor(WHITE);
     display.setCursor(0, 20);
     dumpInfo(&results); // Output the results
