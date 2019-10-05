@@ -43,7 +43,7 @@ void setup() {
   }
 
   //start UART and the server
-  Serial2.begin(9600);
+//  Serial.begin(9600);
   server.begin();
   server.setNoDelay(true);
 
@@ -79,7 +79,7 @@ void loop() {
       if (serverClients[i] && serverClients[i].connected()){
         if(serverClients[i].available()){
           //get data from the telnet client and push it to the UART
-          while(serverClients[i].available()) Serial2.write(serverClients[i].read());
+          while(serverClients[i].available()) Serial.write(serverClients[i].read());
         }
       }
       else {
@@ -89,10 +89,10 @@ void loop() {
       }
     }
     //check UART for data
-    if(Serial2.available()){
-      size_t len = Serial2.available();
+    if(Serial.available()){
+      size_t len = Serial.available();
       uint8_t sbuf[len];
-      Serial2.readBytes(sbuf, len);
+      Serial.readBytes(sbuf, len);
       //push UART data to all connected telnet clients
       for(i = 0; i < MAX_SRV_CLIENTS; i++){
         if (serverClients[i] && serverClients[i].connected()){
