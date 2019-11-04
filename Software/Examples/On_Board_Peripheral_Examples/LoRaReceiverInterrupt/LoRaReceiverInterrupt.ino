@@ -13,7 +13,7 @@
 #define DI0     16   // GPIO26 -- SX127x's IRQ(Interrupt Request)
 
 #define BAND    868E6  //you can set band here directly,e.g. 868E6,915E6
-#define PABOOST true
+#define PABOOST false
 
 
 void setup() {
